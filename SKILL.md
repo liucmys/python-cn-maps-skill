@@ -1,6 +1,6 @@
 ---
 name: python-cn-maps
-description: Guides plotting 2D scientific fields on China maps with matplotlib, Cartopy, cnmaps, and frykit (contourf, pcolormesh, quiver, clip, mask, South China Sea inset). Use when drawing China maps, meteorological/geographic fill plots, administrative boundaries, white-border clipping, or cartopy/cnmaps/frykit workflows. 在中国地图绑图、裁剪、掩膜、南海小图时使用。
+description: Portable agent skill (Cursor, Claude Code, Codex, Copilot, Gemini, OpenCode). Guides 2D fields on China maps with matplotlib, Cartopy, cnmaps, frykit—contourf, pcolormesh, quiver, clip, mask, South China Sea inset. Use when drawing China maps, meteorological/geographic plots, admin boundaries, or cartopy/cnmaps/frykit workflows. 中国地图绑图、裁剪、掩膜、南海小图时使用。
 ---
 
 # Python 中国地图绑图
@@ -8,6 +8,8 @@ description: Guides plotting 2D scientific fields on China maps with matplotlib,
 ## Overview
 
 在 **Cartopy GeoAxes** 上叠加经纬度（及可选高度）科学变量；边界与裁剪优先 **cnmaps**（查询/掩膜/`clip_*_by_map`）与 **frykit**（快速画界、南海小图、防出界 clip、装饰）。整合 [cnmaps 官方 skill](https://github.com/cnmetlab/cnmaps/tree/main/cnmaps/_bundled_skills/shared/cnmaps-python-assistant)；API 以 [cnmaps 文档](https://cnmaps.readthedocs.io/zh-cn/latest/content/api-ref.html) 为准。
+
+本文件为**通用 Agent Skill**（标准 `SKILL.md`），不限于 Cursor。安装路径见 [docs/INSTALL.md](docs/INSTALL.md)（`.cursor/skills`、`.claude/skills`、`~/.codex/skills`、`.github/skills` 等）。OpenCode/Codex 项目可读根目录 [AGENTS.md](AGENTS.md)。
 
 ## When to Use
 
@@ -62,7 +64,7 @@ description: Guides plotting 2D scientific fields on China maps with matplotlib,
 | frykit | ≥0.7，`pip install "frykit[data]"` |
 | matplotlib, numpy | — |
 
-本 skill 目录冒烟环境见 [TESTING.md](TESTING.md)（`uv sync` + `scripts/run_smoke.ps1`）。
+冒烟测试见 [TESTING.md](TESTING.md)（`uv sync` + `scripts/run_smoke.ps1`）。多平台安装：`scripts/install.ps1` / `scripts/install.sh`，详见 [docs/INSTALL.md](docs/INSTALL.md)。
 
 ## Quick start（cnmaps）
 
@@ -167,4 +169,6 @@ plt.savefig("out.png", dpi=300, bbox_inches="tight")
 - [examples.md](examples.md) — E1–E8
 - [troubleshooting.md](troubleshooting.md) — 出界、多子图、性能
 - [TESTING.md](TESTING.md) — uv 冒烟
+- [docs/INSTALL.md](docs/INSTALL.md) — Cursor / Claude / Codex / Copilot / Gemini 等安装
+- [AGENTS.md](AGENTS.md) — Codex、OpenCode 入口
 - 外部：[cnmaps 指南](https://cnmaps.readthedocs.io/zh-cn/latest/index.html) · [frykit](https://github.com/ZhaJiMan/frykit)

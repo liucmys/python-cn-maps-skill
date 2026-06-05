@@ -1,29 +1,34 @@
 # python-cn-maps-skill
 
-Cursor Agent Skill for plotting scientific fields on China maps with **matplotlib**, **Cartopy**, **cnmaps**, and **frykit**.
+**Portable agent skill** for plotting scientific fields on China maps with **matplotlib**, **Cartopy**, **cnmaps**, and **frykit**.
 
-## Install
+Works with **Cursor**, **Claude Code**, **OpenAI Codex**, **GitHub Copilot**, **Gemini CLI**, **OpenCode**, **Windsurf** (via rules), and any agent that can read `SKILL.md`.
 
-### Project skill (recommended)
+## Quick install
 
 ```bash
 git clone https://github.com/liucmys/python-cn-maps-skill.git
-mkdir -p .cursor/skills/python-cn-maps
-cp -r python-cn-maps-skill/* .cursor/skills/python-cn-maps/
+cd python-cn-maps-skill
 ```
 
-Windows PowerShell:
+**Windows:** `.\scripts\install.ps1 -Target cursor -Scope project`  
+**macOS/Linux:** `chmod +x scripts/install.sh && ./scripts/install.sh --target claude --scope project`
+
+| Tool | Project path | Global path |
+|------|----------------|-------------|
+| Cursor | `.cursor/skills/python-cn-maps` | `~/.cursor/skills/python-cn-maps` |
+| Claude Code | `.claude/skills/python-cn-maps` | `~/.claude/skills/python-cn-maps` |
+| Codex | `.codex/skills/python-cn-maps` | `~/.codex/skills/python-cn-maps` |
+| GitHub Copilot | `.github/skills/python-cn-maps` | — |
+| Gemini / agents | `.gemini/skills/...` or `.agents/skills/...` | `~/.gemini/skills/...` |
+| OpenCode | `skills/python-cn-maps` | — |
+
+Full matrix and manual copy steps: **[docs/INSTALL.md](docs/INSTALL.md)**.
+
+Install all common project paths at once:
 
 ```powershell
-git clone https://github.com/liucmys/python-cn-maps-skill.git
-New-Item -ItemType Directory -Force -Path .cursor\skills\python-cn-maps
-Copy-Item -Recurse python-cn-maps-skill\* .cursor\skills\python-cn-maps\
-```
-
-### Global skill
-
-```bash
-git clone https://github.com/liucmys/python-cn-maps-skill.git ~/.cursor/skills/python-cn-maps
+.\scripts\install.ps1 -Target all-project -Scope project
 ```
 
 ## Smoke tests
@@ -31,24 +36,24 @@ git clone https://github.com/liucmys/python-cn-maps-skill.git ~/.cursor/skills/p
 Requires [uv](https://docs.astral.sh/uv/):
 
 ```bash
-cd .cursor/skills/python-cn-maps   # or cloned repo root
 uv sync
-./scripts/run_smoke.ps1            # Windows
-# or: uv run python scripts/check_deps.py && ...
+./scripts/run_smoke.ps1          # Windows
+# ./scripts/install.sh not required for tests when run from repo root
 ```
 
 See [TESTING.md](TESTING.md).
 
-## Contents
+## Repository layout
 
 | File | Purpose |
 |------|---------|
-| `SKILL.md` | Main agent instructions |
-| `examples.md` | E1–E8 copy-paste templates |
-| `reference-cnmaps.md` / `reference-frykit.md` | API quick reference |
-| `troubleshooting.md` | Common fixes |
-| `scripts/` | `uv` smoke tests |
+| `SKILL.md` | Main instructions (tool-agnostic) |
+| `AGENTS.md` | Entry point for Codex / OpenCode / generic agents |
+| `docs/INSTALL.md` | Per-platform installation |
+| `examples.md` | E1–E8 templates |
+| `reference-*.md` / `troubleshooting.md` | Deep reference |
+| `scripts/` | Smoke tests + `install.ps1` / `install.sh` |
 
 ## License
 
-MIT (see repository license file if present).
+MIT — see [LICENSE](LICENSE).
