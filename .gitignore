@@ -1,0 +1,23 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+
+# Local agent installation folders; keep source under skills/.
+.cursor/
+.codex/
+.claude/
+.agents/
+.gemini/
+.github/skills/
+skills/*/.venv/
+
+# Large or external data must stay outside the skill repository.
+*.nc
+*.grib
+*.grib2
+*.csv
+*.zip
+*.7z
+*.rar
