@@ -1,0 +1,12 @@
+[project]
+name = "python-cn-maps-smoke"
+version = "0.1.0"
+description = "Smoke-test environment for the python-cn-maps Cursor skill"
+requires-python = ">=3.12"
+dependencies = [
+    "cartopy>=0.22",
+    "cnmaps>=2.1",
+    "frykit[data]>=0.7",
+    "matplotlib>=3.10.9",
+    "numpy>=2.4.6",
+]
